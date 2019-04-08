@@ -17,7 +17,7 @@ plataforma.check_install()
 local = os.getcwd()
 
 def version():
-	print("0.0.146")
+	print("0.0.148") # 8 de abril de 2019
 
 def imagenes(url, ident="descarga", host="http://pares.mcu.es"):
 	"""

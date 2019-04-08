@@ -42,7 +42,7 @@ Puede personalizarse el nombre del archivo de la descarga con el parámetro *ide
 ```python
 import paress
 
-paress.imagenes("http://pares.mcu.es/ParesBusquedas20/catalogo/show/384442","mi_nombre")
+paress.imagenes("http://pares.mcu.es/ParesBusquedas20/catalogo/show/384442","384442")
 
 ```
 
@@ -56,7 +56,7 @@ Puede personalizarse el nombre del archivo de la descarga con el parámetro *ide
 ```python
 import paress
 
-paress.metadata("http://pares.mcu.es/ParesBusquedas20/catalogo/contiene/425393","mi_nombre")
+paress.metadata("http://pares.mcu.es/ParesBusquedas20/catalogo/contiene/425393","425393")
 
 ```
 

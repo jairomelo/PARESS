@@ -1,4 +1,4 @@
-# PARESS - Web Screaping el Portal de Archivos Españoles
+# PARESS - Web Scraping el Portal de Archivos Españoles
 
 Este es un módulo que puede ser utilizado para realizar tareas de *Web Scraping* en el Portal de Archivos Españoles.
 
@@ -8,9 +8,14 @@ Desde PyPI
 
 `pip install paress`
 
+Desde GitHub
+
+`pip install git+https://github.com/jairomelo/PARESS.git`
+
 # Uso
 
 paress.**metadatalist**(url,elem,host="http://pares.mcu.es")
+
 	Regresa un lista de un elemento: título, fecha, signatura, archivo.
 	El parámetro *elem* se debe indicar como sigue:
 		* Título de los elementos: "titulo"
@@ -28,6 +33,7 @@ paress.metadatalist("http://pares.mcu.es/ParesBusquedas20/catalogo/contiene/4253
 ```
 
 paress.**imagenes**(url, ident="descarga", host="http://pares.mcu.es")
+
 	Descarga las imágenes de un expediente. La ruta debe ser "http://pares.mcu.es/ParesBusquedas20/catalogo/show/xxx".
 	Puede personalizarse el nombre del archivo de la descarga con el parámetro *ident*. *En caso de no incluir este parámetro el programa descarga las imágenes en el directorio '/descarga/' y reemplaza cualquier archivo con el nombre 'descarga.csv'.*
 
@@ -41,6 +47,7 @@ paress.imagenes("http://pares.mcu.es/ParesBusquedas20/catalogo/show/384442","mi_
 ```
 
 paress.**metadata**(url,ident="descarga",host="http://pares.mcu.es")
+
 	Descarga el conjunto de metadatos en un archivo csv.
 	Puede personalizarse el nombre del archivo de la descarga con el parámetro *ident*. *En caso de no incluir este parámetro el programa descarga las imágenes en el directorio '/descarga/' pero no reemplaza ninguna imagen.*
 

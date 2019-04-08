@@ -1,18 +1,23 @@
 import setuptools
 
-with open("README.md", "r") as fh:
-	long_description = fh.read()
+from os import path
+this_directory = path.abspath(path.dirname(__file__))
+with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
+    long_description = f.read()
 
 setuptools.setup(
     name="paress",
-    version="0.0.12",
+    version="0.0.141",
     author="Jairo Antonio Melo Flórez",
     author_email="jairom@colmich.edu.mx",
     description="Utilidad para Web Scrapping en el Portal de Archivos Españoles-PARES",
+    py_modules=["paress"],
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/jairomelo/PARESS",
+    package_dir={'': 'paress'},
     packages=setuptools.find_packages(),
+    install_requires=['selenium','beautifulsoup4'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

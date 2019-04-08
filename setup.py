@@ -7,15 +7,13 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setuptools.setup(
     name="paress",
-    version="0.0.141",
+    version="0.0.147",
     author="Jairo Antonio Melo Flórez",
     author_email="jairom@colmich.edu.mx",
     description="Utilidad para Web Scrapping en el Portal de Archivos Españoles-PARES",
-    py_modules=["paress"],
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/jairomelo/PARESS",
-    package_dir={'': 'paress'},
     packages=setuptools.find_packages(),
     install_requires=['selenium','beautifulsoup4'],
     classifiers=[

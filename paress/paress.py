@@ -16,6 +16,9 @@ plataforma.check_install()
 
 local = os.getcwd()
 
+def version():
+	print("0.0.146")
+
 def imagenes(url, ident="descarga", host="http://pares.mcu.es"):
 	"""
 	Ejecuta un script para descargar las imágenes en un directorio.

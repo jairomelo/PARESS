@@ -16,12 +16,12 @@ Desde GitHub
 
 paress.**metadatalist**(url,elem,host="http://pares.mcu.es")
 
-	Regresa un lista de un elemento: título, fecha, signatura, archivo.
-	El parámetro *elem* se debe indicar como sigue:
-		* Título de los elementos: "titulo"
-		* Nombre de los archivos: "archivo"
-		* Fechas: "fecha"
-		* Signaturas: "signatura"
+Regresa un lista de un elemento: título, fecha, signatura, archivo.
+El parámetro *elem* se debe indicar como sigue:
+	* Título de los elementos: "titulo"
+	* Nombre de los archivos: "archivo"
+	* Fechas: "fecha"
+	* Signaturas: "signatura"
 
 *Ej.: Cartas y expedientes de personas eclesiásticas, sig. FILIPINAS,301*
 
@@ -34,8 +34,8 @@ paress.metadatalist("http://pares.mcu.es/ParesBusquedas20/catalogo/contiene/4253
 
 paress.**imagenes**(url, ident="descarga", host="http://pares.mcu.es")
 
-	Descarga las imágenes de un expediente. La ruta debe ser "http://pares.mcu.es/ParesBusquedas20/catalogo/show/xxx".
-	Puede personalizarse el nombre del archivo de la descarga con el parámetro *ident*. *En caso de no incluir este parámetro el programa descarga las imágenes en el directorio '/descarga/' y reemplaza cualquier archivo con el nombre 'descarga.csv'.*
+Descarga las imágenes de un expediente. La ruta debe ser "http://pares.mcu.es/ParesBusquedas20/catalogo/show/xxx".
+Puede personalizarse el nombre del archivo de la descarga con el parámetro *ident*. *En caso de no incluir este parámetro el programa descarga las imágenes en el directorio '/descarga/' y reemplaza cualquier archivo con el nombre 'descarga.csv'.*
 
 *Ej: Registro: Virreyes de Santa Fe, sig. Archivo General de Indias, SANTA_FE,541,L.3*
 
@@ -48,15 +48,15 @@ paress.imagenes("http://pares.mcu.es/ParesBusquedas20/catalogo/show/384442","mi_
 
 paress.**metadata**(url,ident="descarga",host="http://pares.mcu.es")
 
-	Descarga el conjunto de metadatos en un archivo csv.
-	Puede personalizarse el nombre del archivo de la descarga con el parámetro *ident*. *En caso de no incluir este parámetro el programa descarga las imágenes en el directorio '/descarga/' pero no reemplaza ninguna imagen.*
+Descarga el conjunto de metadatos en un archivo csv.
+Puede personalizarse el nombre del archivo de la descarga con el parámetro *ident*. *En caso de no incluir este parámetro el programa descarga las imágenes en el directorio '/descarga/' pero no reemplaza ninguna imagen.*
 
 *Ej.: Cartas y expedientes de personas eclesiásticas, sig. FILIPINAS,301*
 
 ```python
 import paress
 
-paress.metadata("http://pares.mcu.es/ParesBusquedas20/catalogo/contiene/425393")
+paress.metadata("http://pares.mcu.es/ParesBusquedas20/catalogo/contiene/425393","mi_nombre")
 
 ```
 

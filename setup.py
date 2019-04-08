@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
 	long_description = fh.read()
 
 setuptools.setup(
-    name="PARESS",
-    version="0.0.1",
+    name="paress",
+    version="0.0.12",
     author="Jairo Antonio Melo Flórez",
     author_email="jairom@colmich.edu.mx",
     description="Utilidad para Web Scrapping en el Portal de Archivos Españoles-PARES",

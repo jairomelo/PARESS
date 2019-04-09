@@ -35,28 +35,28 @@ paress.metadatalist("http://pares.mcu.es/ParesBusquedas20/catalogo/contiene/4253
 paress.**imagenes**(url, ident="descarga", host="http://pares.mcu.es")
 
 Descarga las imágenes de un expediente. La ruta debe ser "http://pares.mcu.es/ParesBusquedas20/catalogo/show/xxx".
-Puede personalizarse el nombre del archivo de la descarga con el parámetro *ident*. *En caso de no incluir este parámetro el programa descarga las imágenes en el directorio '/descarga/' y reemplaza cualquier archivo con el nombre 'descarga.csv'.*
+Puede personalizarse el nombre del archivo de la descarga con el parámetro *ident*. *En caso de no incluir este parámetro el programa descarga las imágenes en el directorio '/descarga/' y reemplaza cualquier archivo con el nombre 'descarga.csv'.* Nombres muy largos pueden generar errores.
 
 *Ej: Registro: Virreyes de Santa Fe, sig. Archivo General de Indias, SANTA_FE,541,L.3*
 
 ```python
 import paress
 
-paress.imagenes("http://pares.mcu.es/ParesBusquedas20/catalogo/show/384442","384442")
+paress.imagenes("http://pares.mcu.es/ParesBusquedas20/catalogo/show/384442","nombre_directorio")
 
 ```
 
 paress.**metadata**(url,ident="descarga",host="http://pares.mcu.es")
 
 Descarga el conjunto de metadatos en un archivo csv.
-Puede personalizarse el nombre del archivo de la descarga con el parámetro *ident*. *En caso de no incluir este parámetro el programa descarga las imágenes en el directorio '/descarga/' pero no reemplaza ninguna imagen.*
+Puede personalizarse el nombre del archivo de la descarga con el parámetro *ident*. *En caso de no incluir este parámetro el programa descarga las imágenes en el directorio '/descarga/' pero no reemplaza ninguna imagen.* Nombres muy largos pueden generar errores.
 
 *Ej.: Cartas y expedientes de personas eclesiásticas, sig. FILIPINAS,301*
 
 ```python
 import paress
 
-paress.metadata("http://pares.mcu.es/ParesBusquedas20/catalogo/contiene/425393","425393")
+paress.metadata("http://pares.mcu.es/ParesBusquedas20/catalogo/contiene/425393","nombre_directorio")
 
 ```
 

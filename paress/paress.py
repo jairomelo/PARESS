@@ -102,8 +102,9 @@ def imagenes(url, ident="descarga", host="http://pares.mcu.es"):
 
 	#########################################################################
 	# Obtener página de descripción
-
-	url_descripcion = '{}/ParesBusquedas20/catalogo/description/{}'.format(host, ident)
+	
+	dident = url.split('/')[-1] # Tener en cuenta este script, puede ser útil en adelante.
+	url_descripcion = '{}/ParesBusquedas20/catalogo/description/{}'.format(host, dident)
 	salsa = urllib.request.urlopen(url_descripcion).read()
 	sopa = BeautifulSoup(salsa, 'html.parser')
 	f = codecs.open('{}/descargas/{}/{}.html'.format(local,ident, ident), "w+", "utf-8")

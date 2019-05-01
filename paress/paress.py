@@ -10,14 +10,18 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
 import reconex # Intento de solución de errores de conexión
-import plataforma
-
-plataforma.check_install()
+from instapy_chromedriver import binary_path
 
 local = os.getcwd()
 
 def version():
-	print("0.0.15") # 8 de abril de 2019
+	print("0.0.202") # 1 de mayo de 2019
+
+def driver():
+	''' 
+	Regresa el binario de la ruta de Chromedriver 
+	'''
+	return webdriver.Chrome(executable_path=binary_path)
 
 def imagenes(url, ident="descarga", host="http://pares.mcu.es"):
 	"""
@@ -26,7 +30,7 @@ def imagenes(url, ident="descarga", host="http://pares.mcu.es"):
 	ident = número de identificación del expediente
 	host = 'http://pares.mcu.es'
 	"""
-	browser = plataforma.navegador()
+	browser = driver()
 	browser.get(url)
 
 	#########################################################################
@@ -143,7 +147,7 @@ def metadata(url,ident="descarga",host="http://pares.mcu.es"):
 	host = 'http://pares.mcu.es'
 	"""
 
-	browser = plataforma.navegador()
+	browser = driver()
 	browser.get(url)
 	
 	soup = BeautifulSoup(browser.page_source, 'html.parser')
@@ -398,7 +402,7 @@ def metadatalist(url,elem,host="http://pares.mcu.es"):
 		input("ENTER para salir")
 		sys.exit()
 
-	browser = plataforma.navegador()
+	browser = driver()
 	browser.get(url)
 	
 	soup = BeautifulSoup(browser.page_source, 'html.parser')

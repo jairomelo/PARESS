@@ -1,16 +1,18 @@
-## Solución creada por Peter Bengtsson
-## https://www.peterbe.com/plog/best-practice-with-retries-with-requests
+"""
+Solución creada por Peter Bengtsson
+https://www.peterbe.com/plog/best-practice-with-retries-with-requests
+"""
 
 import requests
 from requests.adapters import HTTPAdapter
-from requests.packages.urllib3.util.retry import Retry
+from urllib3.util import Retry  # tratamos con urllib3 pues `Retry` es obsoleta en requests.
 
 
 def requests_retry_session(
-    retries=3,
-    backoff_factor=0.3,
-    status_forcelist=(500, 502, 504),
-    session=None,
+        retries=3,
+        backoff_factor=0.3,
+        status_forcelist=(500, 502, 504),
+        session=None,
 ):
     session = session or requests.Session()
     retry = Retry(

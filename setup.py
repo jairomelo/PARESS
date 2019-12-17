@@ -16,7 +16,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/jairomelo/PARESS",
     packages=setuptools.find_packages(),
-    install_requires=['selenium', 'beautifulsoup4', 'requests', 'instapy-chromedriver', 'pywin32'],
+    install_requires=['selenium', 'beautifulsoup4', 'requests', 'pywin32'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

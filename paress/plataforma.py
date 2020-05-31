@@ -1,25 +1,26 @@
-import os
-import platform
+# !/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
-from compatibilidad import install_chromedriver
+import sys
+
+from instapy_chromedriver import binary_path
 from selenium import webdriver
-
-plataforma = platform.system()
-
-
-def check_install():
-    """Comprueba que chromedriver esté disponible en la carpeta 'bin' """
-    if plataforma == "Windows":
-        if not os.path.exists('bin/chromedriver.exe'):
-            install_chromedriver()
-    else:
-        if not os.path.exists('bin/chromedriver'):
-            install_chromedriver()
 
 
 def navegador():
     """Crea una ruta ejecutable para chromedriver"""
-    if plataforma == "Windows":
-        return webdriver.Chrome(executable_path=r'bin/chromedriver.exe')
-    else:
-        return webdriver.Chrome(executable_path=r'bin/chromedriver')
+    try:
+        return webdriver.Chrome(executable_path=binary_path)
+    except:
+        raise
+
+
+def imports():
+    try:
+        import reconex  # Intento de solución de errores de conexión
+    except ImportError:
+        # Verifica que se encuentren disponibles los archivos adicionales
+        print(str(sys.exc_info()[1]),
+              "No se encontró el archivo 'reconex.py'. Asegúrese de haberlo descargado y que esté en la carpeta "
+              "principal del programa")
+        sys.exit(-2)

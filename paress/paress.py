@@ -8,36 +8,27 @@ import sys
 import time
 import urllib
 
-import configura
-import plataforma
-import reconex
 import requests
 from bs4 import BeautifulSoup
-from compatibilidad import install_chromedriver
 from selenium.common.exceptions import SessionNotCreatedException
 from selenium.common.exceptions import WebDriverException
 
-configura.imports()
+from .plataforma import imports
+from .plataforma import navegador
+from .reconex import requests_retry_session
+
+imports()
 local = os.getcwd()
 
 
 def navegador():
     try:
-        browser = plataforma.navegador()
+        browser = navegador()
         return browser
-    except WebDriverException as e:
-        try:
-            install_chromedriver()
-        except urllib.error.HTTPError as e:
-            print(e)
     except SessionNotCreatedException as e:
-        print(
-            "Excepción de Selenium: La versión de chromedriver no es compatible con su versión de Chrome. Espere mientras "
-            "la actualizamos.")
-        try:
-            install_chromedriver()
-        except urllib.error.HTTPError as e:
-            print(e)
+        print("La sesión no ha podido crearse")
+    except WebDriverException as e:
+        print("Webdriver is performing the action immediately after ‘closing’ the browser.")
 
 
 def imagenes(url, ident="descarga", host="http://pares.mcu.es"):
@@ -93,9 +84,9 @@ def imagenes(url, ident="descarga", host="http://pares.mcu.es"):
         start = time.time()
         if not os.path.exists("{}/descargas/{}/{}.jpg".format(local, ident, i + 1)):
             s = requests.Session()
-            read = reconex.requests_retry_session(session=s).get(url)  # Intento de solución de errores de conexión
+            read = requests_retry_session(session=s).get(url)  # Intento de solución de errores de conexión
             url_descarga = mi_cadena[i]
-            read = reconex.requests_retry_session(session=s).get(
+            read = requests_retry_session(session=s).get(
                 url_descarga)  # Intento de solución de errores de conexión
             with open("{}/descargas/{}/{}.jpg".format(local, ident, i + 1), 'wb') as handler:
                 handler.write(read.content)

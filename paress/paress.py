@@ -10,25 +10,11 @@ import urllib
 
 import requests
 from bs4 import BeautifulSoup
-from selenium.common.exceptions import SessionNotCreatedException
-from selenium.common.exceptions import WebDriverException
 
-from .plataforma import imports
 from .plataforma import navegador
 from .reconex import requests_retry_session
 
-imports()
 local = os.getcwd()
-
-
-def navegador():
-    try:
-        browser = navegador()
-        return browser
-    except SessionNotCreatedException as e:
-        print("La sesión no ha podido crearse")
-    except WebDriverException as e:
-        print("Webdriver is performing the action immediately after ‘closing’ the browser.")
 
 
 def imagenes(url, ident="descarga", host="http://pares.mcu.es"):
@@ -37,9 +23,9 @@ def imagenes(url, ident="descarga", host="http://pares.mcu.es"):
 
     soup = BeautifulSoup(browser.page_source, 'html.parser')
 
-    num_pags = soup.select("span", {"class": "numPag"})
+    num_pags = soup.select("div > span:nth-child(2)")
     lines = [span.get_text() for span in num_pags]
-    num_imgs = lines[4]
+    num_imgs = str(lines).replace('[\'', '').replace('\']', ',').replace(',', '')
     rango = int(num_imgs) / 8
 
     imgs = soup.select("div.thumbnail img")

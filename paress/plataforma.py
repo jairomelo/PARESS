@@ -1,26 +1,20 @@
 # !/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import sys
-
 from instapy_chromedriver import binary_path
+from .sync_browser import binary_path_act
 from selenium import webdriver
+from selenium.common.exceptions import SessionNotCreatedException
+from selenium.common.exceptions import WebDriverException
 
 
 def navegador():
     """Crea una ruta ejecutable para chromedriver"""
     try:
         return webdriver.Chrome(executable_path=binary_path)
-    except:
-        raise
+    except SessionNotCreatedException as e:
+        print("La versión de Chromedriver instalada por instapy_no corresponde a la de su navegador")
+        return webdriver.Chrome(executable_path=binary_path_act)
 
-
-def imports():
-    try:
-        import reconex  # Intento de solución de errores de conexión
-    except ImportError:
-        # Verifica que se encuentren disponibles los archivos adicionales
-        print(str(sys.exc_info()[1]),
-              "No se encontró el archivo 'reconex.py'. Asegúrese de haberlo descargado y que esté en la carpeta "
-              "principal del programa")
-        sys.exit(-2)
+    except WebDriverException as e:
+        print("Webdriver está realizando la acción inmediatamente después de 'cerrar' el navegador.")

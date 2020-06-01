@@ -8,7 +8,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setuptools.setup(
     name="paress",
-    version="0.0.310",
+    version="0.0.400",
     author="Jairo Antonio Melo Flórez",
     author_email="jairom@colmich.edu.mx",
     description="Utilidad para Web Scrapping en el Portal de Archivos Españoles-PARES",
@@ -16,7 +16,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/jairomelo/PARESS",
     packages=setuptools.find_packages(),
-    install_requires=['selenium', 'beautifulsoup4', 'requests', 'instapy-chromedriver'],
+    install_requires=['selenium', 'beautifulsoup4', 'requests', 'chromedriver-autoinstaller'],
     classifiers=[
         "Programming Language :: Python :: 3.8",
         "License :: OSI Approved :: MIT License",

@@ -1,20 +1,21 @@
 # !/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from instapy_chromedriver import binary_path
-from .sync_browser import binary_path_act
 from selenium import webdriver
 from selenium.common.exceptions import SessionNotCreatedException
 from selenium.common.exceptions import WebDriverException
+import chromedriver_autoinstaller
 
 
 def navegador():
     """Crea una ruta ejecutable para chromedriver"""
     try:
-        return webdriver.Chrome(executable_path=binary_path)
+        return webdriver.Chrome()
     except SessionNotCreatedException as e:
-        print("La versión de Chromedriver instalada por instapy_no corresponde a la de su navegador")
-        return webdriver.Chrome(executable_path=binary_path_act)
-
+        print("Actualizando Chromedriver")
+        chromedriver_autoinstaller.install()
+        return webdriver.Chrome()
     except WebDriverException as e:
-        print("Webdriver está realizando la acción inmediatamente después de 'cerrar' el navegador.")
+        print("Instalando Chromedriver")
+        chromedriver_autoinstaller.install()
+        return webdriver.Chrome()

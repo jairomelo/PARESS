@@ -14,6 +14,8 @@ Desde GitHub
 
 # Uso
 
+Un video tutorial para la descarga de imágenes fue publicado por Carlos Díaz: https://www.youtube.com/watch?v=HTEQtytLV-U
+
 paress.**metadatalist**(url,elem,host="http://pares.mcu.es")
 
 Regresa un lista de un elemento: título, fecha, signatura, archivo.

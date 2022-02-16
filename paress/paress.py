@@ -22,10 +22,7 @@ def imagenes(url, ident="descarga", host="http://pares.mcu.es"):
     browser.get(url)
 
     soup = BeautifulSoup(browser.page_source, 'html.parser')
-
-    num_pags = soup.select("div > span:nth-child(2)")
-    lines = [span.get_text() for span in num_pags]
-    num_imgs = str(lines).replace('[\'', '').replace('\']', ',').replace(',', '')
+    num_imgs = soup.select("#lblOcultarImgs")[0].get_text().replace('imgs', '').strip()
     rango = int(num_imgs) / 8
 
     imgs = soup.select("div.thumbnail img")
@@ -39,7 +36,7 @@ def imagenes(url, ident="descarga", host="http://pares.mcu.es"):
 
     # resto de páginas
     for i in range(int(rango)):
-        i = browser.find_element_by_xpath('//*[@id="botonMasPeq"]')
+        i = browser.find_element_by_xpath('//*[@id="botonMasPeq-2"]')
         i.click()
         time.sleep(1)
         soup = BeautifulSoup(browser.page_source, 'html.parser')

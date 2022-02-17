@@ -14,6 +14,10 @@ from bs4 import BeautifulSoup
 from .plataforma import navegador
 from .reconex import requests_retry_session
 
+from selenium.webdriver.support.ui import Select, WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+
 local = os.getcwd()
 
 
@@ -36,8 +40,7 @@ def imagenes(url, ident="descarga", host="http://pares.mcu.es"):
 
     # resto de páginas
     for i in range(int(rango)):
-        i = browser.find_element_by_xpath('//*[@id="botonMasPeq-2"]')
-        i.click()
+        WebDriverWait(browser, 10).until(EC.presence_of_element_located((By.XPATH, '//*[@id="botonMasPeq-2"]'))).click()
         time.sleep(1)
         soup = BeautifulSoup(browser.page_source, 'html.parser')
         imgs = soup.select("div.thumbnail img")

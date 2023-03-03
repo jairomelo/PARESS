@@ -1,3 +1,17 @@
+# :warning::lock_with_ink_pen: Este proyecto está archivado
+
+La nueva versión del programa es [paress2](https://github.com/jairomelo/paress2). También se puede instalar desde PyPi con:
+
+`pip install paress2`
+
+## Una pequeña nota sobre el cierre de este repositorio
+
+Este fue mi primer proyecto real de programación con Python. Fue una experiencia interesantísima poder crear un programa que pudiera ser utilizado por otras personas y que de hecho ayudó a varios a obtener la información necesaria para realizar sus investigaciones, tesis de maestría y doctorado, o simplemente para tener un respaldo de lo que en un momento dado podría eliminarse por un capricho institucional.
+
+La experiencia de creación fue interesante, pero también estuvo llena de errores. El código en general es muy difícil de mantener y con cada actualización del Portal de Archivos Españoles la actualización era un dolor de cabeza. Básicamente el proyecto estuvo sin funcionar por lo menos un año debido a una actualización simple en la interfaz del archivo.
+
+Por esa razón he decidido que era mejor rehacer el programa antes que intentar reformarlo. El nuevo programa se encuentra en [paress2](https://github.com/jairomelo/paress2) y es mucho más ligero, funcional y fácil de mantener. Con esto será posible escalar el proyecto y hacer frente a las actualizaciones del PARES de manera más rápida.
+
 # PARESS - Web Scraping el Portal de Archivos Españoles
 
 Este es un módulo que puede ser utilizado para realizar tareas de *Web Scraping* en el Portal de Archivos Españoles.
